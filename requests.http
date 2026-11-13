@@ -1,0 +1,51 @@
+
+### 1. Get all events
+GET http://localhost:3000/api/events
+
+### 2. Get upcoming events
+GET http://localhost:3000/api/events/upcoming
+
+### 3. Get one event
+GET http://localhost:3000/api/events/evt-101
+
+### 4. Get sessions for an event
+GET http://localhost:3000/api/events/evt-101/sessions
+
+### 5. Get one session
+GET http://localhost:3000/api/events/evt-101/sessions/ses-201
+
+### 6. Filter by category
+GET http://localhost:3000/api/events?category=technology
+
+### 7. Filter by location
+GET http://localhost:3000/api/events?location=Main%20Campus
+
+### 8. Filter by publication status
+GET http://localhost:3000/api/events?isPublished=true
+
+### 9. Sort and paginate
+GET http://localhost:3000/api/events?sortBy=eventDate&order=asc&page=2&limit=2
+
+### 10. Create a new event
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "title": "Campus Sports Day",
+  "description": "A day of sports and student activities.",
+  "location": "Sports Field",
+  "eventDate": "2026-12-30T09:00:00.000Z",
+  "category": "sports",
+  "isPublished": true
+}
+
+### 11. Test validation with missing fields
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "title": "Incomplete Event"
+}
+
+### 12. Test event not found
+GET http://localhost:3000/api/events/evt-999
